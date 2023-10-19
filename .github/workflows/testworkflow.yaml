@@ -28,6 +28,16 @@ jobs:
 #              run: |
 #                pwd
 #                ls -la
+            - name: Slack Notification
+              uses: rtCamp/action-slack-notify@v2
+              
+              env:
+                SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK_URL}}
+                SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+                SLACK_MSG_AUTHOR: SyBruh
+                SLACK_TITLE: Image build and signed
+                SLACK_MESSAGE: "*Name:* Testing\n*Metriculation:* abc123\n*Email:* <example.com|abc123>\n*Git:* <example.com|abc123>\n*Image:* <example.com|abc123>"
+            
 
             - uses: MeilCli/slack-upload-file@v3
               with:
