@@ -18,9 +18,14 @@ jobs:
                 scan-type: 'fs'
                 ignore-unfixed: true
                 format: 'table'
-                output: 'test.txt'
-                severity: 'HIGH,CRITICAL .'
-                
+                output: '${{github.workspace}}/test.txt'
+                severity: 'HIGH,CRITICAL'
+              
+            - name: Debug OUTPUT
+              run: |
+                pwd
+                ls -la
+
             - uses: MeilCli/slack-upload-file@v3
               with:
                 slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
