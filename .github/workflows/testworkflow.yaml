@@ -1,6 +1,10 @@
 name: Build and Push
 on:
-- push
+  push:
+    branches:
+      - v[0-100].[0-100]
+      - test
+  
 
 jobs:
     slarkNotification:    
