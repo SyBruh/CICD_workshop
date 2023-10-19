@@ -11,23 +11,23 @@ jobs:
         name: Slack Notification
         runs-on: ubuntu-latest
         steps:  
-#            - uses: actions/checkout@v2
-#            - name: Run Trivy vulnerability scanner in repo mode
-#              uses: aquasecurity/trivy-action@master
-#              with:
-#                scan-type: 'fs'
-#                ignore-unfixed: true
-#                format: 'table'
-#                output: 'test.txt'
-#                severity: 'HIGH,CRITICAL'
+            - uses: actions/checkout@v2
+            - name: Run Trivy vulnerability scanner in repo mode
+              uses: aquasecurity/trivy-action@master
+              with:
+                scan-type: 'fs'
+                ignore-unfixed: true
+                format: 'table'
+                output: 'test.txt'
+                severity: 'HIGH,CRITICAL'
 
-            - name: Create File
-              run: echo "hello" > output.txt
+#            - name: Create File
+#              run: echo "hello" > output.txt
 
-            - name: Debug OUTPUT
-              run: |
-                pwd
-                ls -la
+#            - name: Debug OUTPUT
+#              run: |
+#                pwd
+#                ls -la
 
             - uses: MeilCli/slack-upload-file@v3
               with:
