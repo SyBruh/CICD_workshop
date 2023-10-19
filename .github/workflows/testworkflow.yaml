@@ -12,12 +12,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:  
             - uses: actions/checkout@v2
-            - name: Slack Notification
-              uses: rtCamp/action-slack-notify@v2
-              
-              env:
-                SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK_URL}}
-                SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-                SLACK_MSG_AUTHOR: SyBruh
-                SLACK_TITLE: Image build and signed
-                SLACK_MESSAGE: "*Name:*\n Testing\n*Metriculation:*\n abc123\n*Email:*\n <example.com|abc123>\n*Git:*\n <example.com|abc123>\n*Image:*\n <example.com|abc123>"
+            - name: Run Trivy vulnerability scanner in repo mode
+              uses: aquasecurity/trivy-action@master
+              with:
+                scan-type: 'fs'
+                ignore-unfixed: true
+                format: 'table'
+                output: 'test.txt'
+                severity: 'HIGH,CRITICAL .'
