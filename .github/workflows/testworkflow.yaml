@@ -56,7 +56,7 @@ jobs:
               uses: docker/build-push-action@v5
               with:
                 push: true
-                tags: swamyay/cicdworkshop:latest
+                tags: swamyay/cicdworkshop:${{github.ref}}
                 
 
             - name: Slack Notification
