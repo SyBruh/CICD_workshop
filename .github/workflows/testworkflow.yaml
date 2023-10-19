@@ -20,6 +20,7 @@ jobs:
                 format: 'table'
                 output: 'test.txt'
                 severity: 'HIGH,CRITICAL'
+                exit-code: '1'
 
 #            - name: Create File
 #              run: echo "hello" > output.txt
@@ -28,20 +29,20 @@ jobs:
 #              run: |
 #                pwd
 #                ls -la
-            - name: Slack Notification
-              uses: rtCamp/action-slack-notify@v2
+#            - name: Slack Notification
+#              uses: rtCamp/action-slack-notify@v2
               
-              env:
-                SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK_URL}}
-                SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-                SLACK_MSG_AUTHOR: SyBruh
-                SLACK_TITLE: Image build and signed
-                SLACK_MESSAGE: "*Name:* Testing\n*Metriculation:* abc123\n*Email:* <example.com|abc123>\n*Git:* <example.com|abc123>\n*Image:* <example.com|abc123>"
+#              env:
+#                SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK_URL}}
+#                SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+#                SLACK_MSG_AUTHOR: SyBruh
+#                SLACK_TITLE: Image build and signed
+#                SLACK_MESSAGE: "*Name:* Testing\n*Metriculation:* abc123\n*Email:* <example.com|abc123>\n*Git:* <example.com|abc123>\n*Image:* <example.com|abc123>"
             
 
-            - uses: MeilCli/slack-upload-file@v3
-              with:
-                slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
-                channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-                file_path: '/home/runner/work/CICD_workshop/CICD_workshop/test.txt'
-                initial_comment: 'post by slack-upload-file'
+#            - uses: MeilCli/slack-upload-file@v3
+#              with:
+#                slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
+#                channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+#                file_path: '/home/runner/work/CICD_workshop/CICD_workshop/test.txt'
+#                initial_comment: 'post by slack-upload-file'
