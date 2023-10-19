@@ -50,11 +50,12 @@ jobs:
                 SLACK_MSG_AUTHOR: SyBruh
                 SLACK_TITLE: Scan Failed Aiyo
                 SLACK_MESSAGE: "Fail Trivy Scan, Check that txt out"
-              
 
-            - uses: MeilCli/slack-upload-file@v3
+            - name: file upload  
+              if: ${{ failure() }}
+              uses: MeilCli/slack-upload-file@v3
               with:
                 slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
                 channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
                 file_path: '/home/runner/work/CICD_workshop/CICD_workshop/test.txt'
-                initial_comment: 'post by slack-upload-file'
+                initial_comment: 'Upload by Aiyo'
