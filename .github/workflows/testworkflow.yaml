@@ -46,7 +46,7 @@ jobs:
                 SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
                 SLACK_MSG_AUTHOR: SyBruh
                 SLACK_TITLE: Image build and signed
-                SLACK_MESSAGE: "*Name:* Swam Yay Pyae Hmuu\n*Metriculation:* A0285948E\n*Email:* <e1221760@u.nus.edu|e1221760@u.nus.edu>\n*Git:* <https://github.com/SyBruh/CICD_workshop|https://github.com/SyBruh/CICD_workshop>\n*Image:* <https://hub.docker.com/repository/docker/swamyay/cicdworkshop/|https://hub.docker.com/repository/docker/swamyay/cicdworkshop/>"
+                SLACK_MESSAGE: "*Name:* Swam Yay Pyae Hmuu\n*Metriculation:* A0285948E\n*Email:* <swamyaypyaehmuu@gmail.com|swamyaypyaehmuu@gmail.com>\n*Git:* <https://github.com/SyBruh/CICD_workshop|https://github.com/SyBruh/CICD_workshop>\n*Image:* <https://hub.docker.com/repository/docker/swamyay/cicdworkshop/|https://hub.docker.com/repository/docker/swamyay/cicdworkshop/>"
             
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v3
