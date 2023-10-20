@@ -2,8 +2,7 @@ name: Build and Push
 on:
   push:
     branches:
-      - v[0-100].[0-100]
-      - test
+      - v[0-9]+.[0-9]+
   
 
 jobs:
@@ -47,7 +46,7 @@ jobs:
                 SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
                 SLACK_MSG_AUTHOR: SyBruh
                 SLACK_TITLE: Image build and signed
-                SLACK_MESSAGE: "*Name:* Testing\n*Metriculation:* abc123\n*Email:* <example.com|abc123>\n*Git:* <example.com|abc123>\n*Image:* <example.com|abc123>"
+                SLACK_MESSAGE: "*Name:* Swam Yay Pyae Hmuu\n*Metriculation:* A0285948E\n*Email:* <e1221760@u.nus.edu|e1221760@u.nus.edu>\n*Git:* <https://github.com/SyBruh/CICD_workshop|https://github.com/SyBruh/CICD_workshop>\n*Image:* <https://hub.docker.com/repository/docker/swamyay/cicdworkshop/|https://hub.docker.com/repository/docker/swamyay/cicdworkshop/>"
             
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v3
@@ -92,8 +91,8 @@ jobs:
                 SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK_URL}}
                 SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
                 SLACK_MSG_AUTHOR: SyBruh
-                SLACK_TITLE: Scan Failed Aiyo
-                SLACK_MESSAGE: "Fail Trivy Scan, Check that txt out"
+                SLACK_TITLE: Scan Failed - Swam Yay Pyae Hmuu
+                SLACK_MESSAGE: "Fail Trivy Scan, Check the report for detiails"
                 SLACK_COLOR: ${{job.status}}
 
             - name: file upload  
@@ -103,4 +102,4 @@ jobs:
                 slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
                 channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
                 file_path: '/home/runner/work/CICD_workshop/CICD_workshop/test.txt'
-                initial_comment: 'Upload by Aiyo'
+                initial_comment: 'Upload by Swam Yay Pyae Hmuu'
