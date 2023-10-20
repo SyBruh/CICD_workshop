@@ -65,7 +65,7 @@ jobs:
               uses: docker/metadata-action@v4.4.0
               with:
                 images: swamyay/cicdworkshop
-                tags: swamyay/cicdworkshop:${{github.sha}}
+                tags: ${{github.sha}}
             -
               name: Build and push
               uses: docker/build-push-action@v5
